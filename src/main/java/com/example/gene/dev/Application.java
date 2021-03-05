@@ -57,6 +57,7 @@ public class Application {
 
     //zadanie nr 1
     private static void firstTask() {
+        roomId = 0;
         int[] taskIndexArray = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         int[] startHourArray = {8, 8, 9, 9, 12, 12, 11, 8, 12};
         int[] endHourArray = {10, 11, 11, 11, 14, 13, 13, 11, 13};
