@@ -31,6 +31,8 @@ public class ExerciseOne {
                     " - " + meeting.getEndHour());
         }
 
+        System.out.println();
+
         while (resultMeetingArray.size() > 0) {
             maximizeMeetings(resultMeetingArray, roomId);
             roomId++;
