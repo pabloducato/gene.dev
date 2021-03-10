@@ -30,7 +30,6 @@ public class ExerciseTwo {
         } else {
             System.out.println("Nie wylosowano żadnych liczb doskonałych\n");
         }
-
     }
 
     private static void printDivisors(int n) {

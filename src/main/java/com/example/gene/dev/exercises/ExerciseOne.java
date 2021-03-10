@@ -25,6 +25,7 @@ public class ExerciseOne {
         }
 
         System.out.println("Zadanie nr 1\nZajęcia, które należy rozplanować: ");
+
         for (Meeting meeting : resultMeetingArray) {
             System.out.println("Indeks: " + meeting.getMeetingId() + " -> " + "Godziny: " + meeting.getStartHour() +
                     " - " + meeting.getEndHour());
@@ -39,11 +40,11 @@ public class ExerciseOne {
     }
 
     public void maximizeMeetings(ArrayList<Meeting> meetings, int roomId) {
-
         meetings.sort(Comparator.comparingInt(Meeting::getEndHour));
 
         ArrayList<Meeting> selectedMeetings = new ArrayList<>();
         int currentEndTime = -1;
+
         for (Meeting currentMeeting : meetings) {
             if (currentMeeting.getStartHour() >= currentEndTime) {
                 selectedMeetings.add(currentMeeting);
@@ -52,6 +53,7 @@ public class ExerciseOne {
         }
 
         System.out.println("Zaplanowane spotkania w sali nr: " + roomId);
+
         for (Meeting selectedMeeting : selectedMeetings) {
             System.out.println("Indeks: " + selectedMeeting.getMeetingId() + " -> " + "Godziny: " +
                     selectedMeeting.getStartHour() + " - " + selectedMeeting.getEndHour());
