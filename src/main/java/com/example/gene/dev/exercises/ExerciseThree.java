@@ -3,14 +3,14 @@ package com.example.gene.dev.exercises;
 public class ExerciseThree {
 
     public void launchThirdTask() {
-        System.out.println("Kwerenda SQL\n\nSELECT *\n" +
-                "FROM authors\n" +
-                "         JOIN book_authors ON authors.author_id = book_authors.author_id\n" +
-                "         JOIN books ON book_authors.book_id = books.book_id\n" +
-                "         JOIN publishers ON books.publisher_id = publishers.publisher_id\n" +
-                "         JOIN book_genres ON books.book_id = book_genres.book_id\n" +
-                "         JOIN genres ON book_genres.genre_id = genres.genre_id\n" +
-                "ORDER BY genres.genre ASC;\n");
+        System.out.println("Kwerenda SQL\n\nSELECT a.first_name, a.middle_name, a.last_name, b.title, p.name\n" +
+                "FROM authors a\n" +
+                "         JOIN book_authors ba ON a.author_id = ba.author_id\n" +
+                "         JOIN books b ON ba.book_id = b.book_id\n" +
+                "         JOIN publishers p ON b.publisher_id = p.publisher_id\n" +
+                "         JOIN book_genres bg ON b.book_id = bg.book_id\n" +
+                "         JOIN genres g ON bg.genre_id = g.genre_id\n" +
+                "ORDER BY g.genre;\n");
     }
 
 }

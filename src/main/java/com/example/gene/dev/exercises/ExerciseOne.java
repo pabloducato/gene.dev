@@ -17,11 +17,7 @@ public class ExerciseOne {
         ArrayList<Meeting> meetingArray = new ArrayList<>();
 
         for (int i = 0; i < taskIndexArray.length; i++) {
-            Meeting meeting = new Meeting();
-            meeting.setMeetingId(taskIndexArray[i]);
-            meeting.setMeetingStartHour(startHourArray[i]);
-            meeting.setMeetingEndHour(endHourArray[i]);
-            meetingArray.add(meeting);
+            meetingArray.add(new Meeting(taskIndexArray[i], startHourArray[i], endHourArray[i]));
         }
 
         System.out.println("Zadanie nr 1\nZajęcia, które należy rozplanować: ");

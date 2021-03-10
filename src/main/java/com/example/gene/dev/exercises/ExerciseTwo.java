@@ -14,6 +14,7 @@ public class ExerciseTwo {
 
         int allNumbers = (int) (((new Date().getTime() / 1000 % 60) + 1) * 1000);
         System.out.println("Zadanie nr 2");
+
         for (int i = 0; i < allNumbers; i++) {
             int target = generateRandomNumber();
             numberList.add(target);
@@ -32,6 +33,7 @@ public class ExerciseTwo {
 
     private int printDivisors(int n, int perfectNumManifestation) {
         int sum = 0;
+
         for (int i = 1; i <= n; i++) {
             if (n % i == 0 && n != i) {
                 String input = i + " ";
@@ -42,20 +44,20 @@ public class ExerciseTwo {
                 }
             }
         }
+
         if (sum == n && sum != 0) {
             perfectNumManifestation += 1;
             System.out.println("###### Doskonała liczba " + n + " ###### -> Licznik: " + perfectNumManifestation);
         }
+
         return perfectNumManifestation;
     }
 
     private int generateRandomNumber() {
-
         int length = oldNumberLength == 1 ? 2 : (oldNumberLength == 2 ? 3 : (oldNumberLength == 3 ? 4 : (oldNumberLength == 4 ? 5 : 1)));
-
         oldNumberLength = length;
-
         StringBuilder actualNumber = new StringBuilder();
+
         for (int i = 0; i <= length; i++) {
             int[] digits = Long.toString(System.currentTimeMillis()).chars().map(c -> c - '0').toArray();
             actualNumber.append(digits[digits.length - length - i]);
