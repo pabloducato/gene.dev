@@ -53,11 +53,7 @@ public class ExerciseTwo {
     private int generateRandomNumber() {
         int length = 0;
 
-        if (oldNumberLength == 1) length = 2;
-        else if (oldNumberLength == 2) length = 3;
-        else if (oldNumberLength == 3) length = 4;
-        else if (oldNumberLength == 4) length = 5;
-        else length = 1;
+        length = oldNumberLength == 1 ? 2 : (oldNumberLength == 2 ? 3 : (oldNumberLength == 3 ? 4 : (oldNumberLength == 4 ? 5 : 1)));
 
         oldNumberLength = length;
 
