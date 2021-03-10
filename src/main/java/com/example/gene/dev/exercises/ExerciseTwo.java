@@ -7,19 +7,18 @@ import java.util.Random;
 
 public class ExerciseTwo {
 
-    private static int perfectNumManifestation = 0;
     private static int oldNumberLength = 0;
-    private final List<Integer> numberList = new ArrayList<>();
 
     public void launchSecondTask() {
-        perfectNumManifestation = 0;
+        int perfectNumManifestation = 0;
+        final List<Integer> numberList = new ArrayList<>();
 
         int allNumbers = (int) (((new Date().getTime() / 1000 % 60) + 1) * 1000);
         System.out.println("Zadanie nr 2");
         for (int i = 0; i < allNumbers; i++) {
             int target = generateRandomNumber();
             numberList.add(target);
-            printDivisors(target);
+            perfectNumManifestation = printDivisors(target, perfectNumManifestation);
         }
 
         System.out.println("Wygenerowano następujący ciąg liczb losowych: " + numberList);
@@ -32,7 +31,7 @@ public class ExerciseTwo {
         }
     }
 
-    private static void printDivisors(int n) {
+    private int printDivisors(int n, int perfectNumManifestation) {
         int sum = 0;
         for (int i = 1; i <= n; i++) {
             if (n % i == 0 && n != i) {
@@ -48,22 +47,17 @@ public class ExerciseTwo {
             perfectNumManifestation += 1;
             System.out.println("###### Doskonała liczba " + n + " ###### -> Licznik: " + perfectNumManifestation);
         }
+        return perfectNumManifestation;
     }
 
-    private static int generateRandomNumber() {
+    private int generateRandomNumber() {
         int length = 0;
 
-        if (oldNumberLength == 1) {
-            length = 2;
-        } else if (oldNumberLength == 2) {
-            length = 3;
-        } else if (oldNumberLength == 3) {
-            length = 4;
-        } else if (oldNumberLength == 4) {
-            length = 5;
-        } else {
-            length = 1;
-        }
+        if (oldNumberLength == 1) length = 2;
+        else if (oldNumberLength == 2) length = 3;
+        else if (oldNumberLength == 3) length = 4;
+        else if (oldNumberLength == 4) length = 5;
+        else length = 1;
 
         oldNumberLength = length;
 
