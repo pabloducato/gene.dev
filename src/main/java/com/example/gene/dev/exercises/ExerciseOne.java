@@ -31,14 +31,14 @@ public class ExerciseOne {
         }
 
         while (resultMeetingArray.size() > 0) {
-            maxMeetings(resultMeetingArray, roomId);
+            maximizeMeetings(resultMeetingArray, roomId);
             roomId++;
         }
 
         System.out.println("\nMinimalna, wymagana liczba sal, aby obsłużyć podane spotkania wynosi: " + roomId + "\n");
     }
 
-    public void maxMeetings(ArrayList<Meeting> meetings, int roomId) {
+    public void maximizeMeetings(ArrayList<Meeting> meetings, int roomId) {
 
         meetings.sort(Comparator.comparingInt(Meeting::getEndHour));
 
