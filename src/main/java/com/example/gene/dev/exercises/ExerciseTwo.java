@@ -3,7 +3,6 @@ package com.example.gene.dev.exercises;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 public class ExerciseTwo {
 
@@ -51,15 +50,15 @@ public class ExerciseTwo {
     }
 
     private int generateRandomNumber() {
-        int length = 0;
 
-        length = oldNumberLength == 1 ? 2 : (oldNumberLength == 2 ? 3 : (oldNumberLength == 3 ? 4 : (oldNumberLength == 4 ? 5 : 1)));
+        int length = oldNumberLength == 1 ? 2 : (oldNumberLength == 2 ? 3 : (oldNumberLength == 3 ? 4 : (oldNumberLength == 4 ? 5 : 1)));
 
         oldNumberLength = length;
 
         StringBuilder actualNumber = new StringBuilder();
         for (int j = 0; j <= length; j++) {
-            actualNumber.append(new Random().nextInt(9));
+            int[] digits = Long.toString(System.currentTimeMillis()).chars().map(c -> c - '0').toArray();
+            actualNumber.append(digits[digits.length - length - j]);
         }
 
         return Integer.parseInt(String.valueOf(actualNumber));

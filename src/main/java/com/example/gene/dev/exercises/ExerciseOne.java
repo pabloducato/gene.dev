@@ -14,27 +14,27 @@ public class ExerciseOne {
         int[] startHourArray = {8, 8, 9, 9, 12, 12, 11, 8, 12};
         int[] endHourArray = {10, 11, 11, 11, 14, 13, 13, 11, 13};
 
-        ArrayList<Meeting> resultMeetingArray = new ArrayList<>();
+        ArrayList<Meeting> meetingArray = new ArrayList<>();
 
         for (int i = 0; i < taskIndexArray.length; i++) {
             Meeting meeting = new Meeting();
             meeting.setMeetingId(taskIndexArray[i]);
-            meeting.setStartHour(startHourArray[i]);
-            meeting.setEndHour(endHourArray[i]);
-            resultMeetingArray.add(meeting);
+            meeting.setMeetingStartHour(startHourArray[i]);
+            meeting.setMeetingEndHour(endHourArray[i]);
+            meetingArray.add(meeting);
         }
 
         System.out.println("Zadanie nr 1\nZajęcia, które należy rozplanować: ");
 
-        for (Meeting meeting : resultMeetingArray) {
-            System.out.println("Indeks: " + meeting.getMeetingId() + " -> " + "Godziny: " + meeting.getStartHour() +
-                    " - " + meeting.getEndHour());
+        for (Meeting meeting : meetingArray) {
+            System.out.println("Indeks: " + meeting.getMeetingId() + " -> " + "Godziny: " + meeting.getMeetingStartHour() +
+                    " - " + meeting.getMeetingEndHour());
         }
 
         System.out.println();
 
-        while (resultMeetingArray.size() > 0) {
-            maximizeMeetings(resultMeetingArray, roomId);
+        while (meetingArray.size() != 0) {
+            maximizeMeetings(meetingArray, roomId);
             roomId++;
         }
 
@@ -42,15 +42,15 @@ public class ExerciseOne {
     }
 
     private void maximizeMeetings(ArrayList<Meeting> meetings, int roomId) {
-        meetings.sort(Comparator.comparingInt(Meeting::getEndHour));
+        meetings.sort(Comparator.comparingInt(Meeting::getMeetingEndHour));
 
         ArrayList<Meeting> selectedMeetings = new ArrayList<>();
-        int currentEndTime = -1;
+        int currentMeetingEndTime = -1;
 
         for (Meeting currentMeeting : meetings) {
-            if (currentMeeting.getStartHour() >= currentEndTime) {
+            if (currentMeeting.getMeetingStartHour() >= currentMeetingEndTime) {
                 selectedMeetings.add(currentMeeting);
-                currentEndTime = currentMeeting.getEndHour();
+                currentMeetingEndTime = currentMeeting.getMeetingEndHour();
             }
         }
 
@@ -58,7 +58,7 @@ public class ExerciseOne {
 
         for (Meeting selectedMeeting : selectedMeetings) {
             System.out.println("Indeks: " + selectedMeeting.getMeetingId() + " -> " + "Godziny: " +
-                    selectedMeeting.getStartHour() + " - " + selectedMeeting.getEndHour());
+                    selectedMeeting.getMeetingStartHour() + " - " + selectedMeeting.getMeetingEndHour());
         }
 
         meetings.removeAll(selectedMeetings);

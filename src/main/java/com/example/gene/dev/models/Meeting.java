@@ -8,7 +8,7 @@ import lombok.Setter;
 public class Meeting {
 
     private int meetingId;
-    private int startHour;
-    private int endHour;
+    private int meetingStartHour;
+    private int meetingEndHour;
 
 }
