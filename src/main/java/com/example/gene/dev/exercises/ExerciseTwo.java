@@ -56,9 +56,9 @@ public class ExerciseTwo {
         oldNumberLength = length;
 
         StringBuilder actualNumber = new StringBuilder();
-        for (int j = 0; j <= length; j++) {
+        for (int i = 0; i <= length; i++) {
             int[] digits = Long.toString(System.currentTimeMillis()).chars().map(c -> c - '0').toArray();
-            actualNumber.append(digits[digits.length - length - j]);
+            actualNumber.append(digits[digits.length - length - i]);
         }
 
         return Integer.parseInt(String.valueOf(actualNumber));
