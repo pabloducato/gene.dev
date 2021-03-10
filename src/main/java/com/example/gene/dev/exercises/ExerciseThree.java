@@ -3,8 +3,7 @@ package com.example.gene.dev.exercises;
 public class ExerciseThree {
 
     public void launchThirdTask() {
-        System.out.println("Kwerenda SQL\n");
-        System.out.println("SELECT *\n" +
+        System.out.println("Kwerenda SQL\n\nSELECT *\n" +
                 "FROM authors\n" +
                 "         JOIN book_authors ON authors.author_id = book_authors.author_id\n" +
                 "         JOIN books ON book_authors.book_id = books.book_id\n" +
