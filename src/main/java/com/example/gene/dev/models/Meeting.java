@@ -1,4 +1,4 @@
-package com.example.gene.dev;
+package com.example.gene.dev.models;
 
 import lombok.Getter;
 import lombok.Setter;
